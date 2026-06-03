@@ -1,0 +1,36 @@
+---
+// Single-page site: nav links are in-page section anchors.
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#research', label: 'Research' },
+  { href: '#products', label: 'Products' },
+  { href: '#publications', label: 'Publications' },
+];
+---
+
+<header class="w-full border-b border-[var(--color-line)]">
+  <nav
+    class="max-w-6xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between"
+  >
+    <a
+      href="#top"
+      class="font-serif text-lg tracking-tight text-[var(--color-text)] link-underline"
+    >
+      Dongyoon Wee
+    </a>
+    <ul class="flex items-center gap-6 text-sm font-mono">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="link-underline text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,36 @@
+# Public-safe product descriptions. Sources (vault canonical):
+#   MI            — 2_Areas/23_Naver/232_Understanding/Service/MI.md
+#   AdVoost (I2M) — 2_Areas/23_Naver/234_Generation/Service/AdVoost.md
+#   Line Works Vision — 2_Areas/23_Naver/233_Perception/Service/LW-Vision.md
+# Confidential info (internal metrics, KPIs, schedules, advertiser names,
+# competitor comparisons, revenue forecasts, partnerships, code-names) excluded.
+
+mi:
+  name: 'MI'
+  tagline: 'Video Intelligence'
+  order: 1
+  description: >-
+    Media Intelligence — a video intelligence solution that analyzes video and
+    image content across vision, audio, and text to enable search, editing, and
+    question answering on media, pairing an analysis engine with a media agent
+    for natural-language search.
+
+advoost:
+  name: 'Necro (AdVoost)'
+  tagline: 'Advertising video generation'
+  order: 2
+  description: >-
+    A video generation engine powering AdVoost, which turns a single product
+    image into a short motion video ad. Advertisers upload an image, a
+    vision-language model suggests motion effects, and the engine produces the
+    result — positioning motion creatives as an upgrade over static banners.
+
+lw-vision:
+  name: 'LineWorks Vision'
+  tagline: 'Cloud camera vision'
+  order: 3
+  description: >-
+    A cloud-camera service for the Japanese market that extends recording and
+    remote monitoring into operational intelligence — people counting, person
+    search via re-identification, movement heatmaps, and behavioral analysis for
+    retail and facility operations.

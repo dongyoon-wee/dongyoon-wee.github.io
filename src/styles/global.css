@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+/* Fonts — self-hosted via fontsource */
+@import '@fontsource/newsreader/400.css';
+@import '@fontsource/newsreader/500.css';
+@import '@fontsource/newsreader/400-italic.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
+
+/*
+  Monochrome design system — reference: https://www.anthropic.com/research
+  No color. Typography contrast + whitespace precision carry the design.
+*/
+@theme {
+  --color-bg: #fbfbfa; /* warm off-white */
+  --color-text: #191919; /* deep charcoal, softer than pure black */
+  --color-ink: #000000; /* pure black, reserved for emphasized metrics */
+  --color-muted: #6b6b6b; /* secondary text */
+  --color-faint: #9a9a9a; /* tertiary / meta */
+  --color-line: #e5e5e5; /* hairline borders only */
+
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Editorial list hover interaction: meta reveals on hover */
+.reveal-meta {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.group:hover .reveal-meta,
+.group:focus-within .reveal-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle link underline */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}

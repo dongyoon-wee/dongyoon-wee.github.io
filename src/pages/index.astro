@@ -1,0 +1,83 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ProductList from '../components/ProductList.astro';
+import PublicationList from '../components/PublicationList.astro';
+
+const about = (await getCollection('pages')).find((p) => p.id === 'about')!;
+const { Content: AboutContent } = await render(about);
+
+const pubs = await getCollection('publications');
+const products = await getCollection('products');
+
+// Research topics, side by side, in the requested order.
+const topics = [
+  {
+    title: 'Vision Understanding',
+    description:
+      'Understanding video at the scene, action, and semantic level — video LLMs, downstream tasks, and representation learning.',
+  },
+  {
+    title: 'Efficient Generative AI',
+    description:
+      'Making understanding and generation models efficient enough to ship — training-free acceleration and caching for video LLMs and diffusion.',
+  },
+  {
+    title: 'Spatial Intelligence',
+    description:
+      'Reconstructing people and 3D space from video and images — human mesh recovery, tracking, Gaussian splatting, and dynamic radiance fields.',
+  },
+];
+---
+
+<Base>
+  <span id="top"></span>
+
+  {/* 1. About Me */}
+  <section id="about">
+    <Hero
+      name="Dongyoon Wee"
+      tagline="AI Research Engineer at NAVER Corp, leading the Vision team — carrying computer vision from research into production."
+    >
+      <div class="text-[var(--color-muted)] leading-relaxed space-y-4">
+        <AboutContent />
+      </div>
+    </Hero>
+  </section>
+
+  {/* 2. Research Topics — side by side */}
+  <section id="research" class="py-12 border-t border-[var(--color-line)]">
+    <h2 class="font-serif text-2xl text-[var(--color-text)] mb-6">
+      Research Topics
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
+      {
+        topics.map((t) => (
+          <div>
+            <h3 class="font-serif text-lg text-[var(--color-text)]">
+              {t.title}
+            </h3>
+            <p class="mt-2 text-[var(--color-muted)] leading-relaxed text-[15px]">
+              {t.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* 3. Products — side by side */}
+  <section id="products" class="py-12 border-t border-[var(--color-line)]">
+    <h2 class="font-serif text-2xl text-[var(--color-text)] mb-6">Products</h2>
+    <ProductList products={products} />
+  </section>
+
+  {/* 4. Publications — single list, newest first, Anthropic-style */}
+  <section id="publications" class="py-12 border-t border-[var(--color-line)]">
+    <h2 class="font-serif text-2xl text-[var(--color-text)] mb-4">
+      Publications
+    </h2>
+    <PublicationList publications={pubs} />
+  </section>
+</Base>

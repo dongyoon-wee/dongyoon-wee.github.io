@@ -1,0 +1,42 @@
+---
+/*
+  Inline self-hosted video (MP4/WebM). Defaults to a muted autoplay loop,
+  suited to short demo clips embedded in cards.
+*/
+interface Props {
+  src: string;
+  poster?: string;
+  caption?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+}
+const {
+  src,
+  poster,
+  caption,
+  autoplay = true,
+  loop = true,
+  controls = false,
+} = Astro.props;
+---
+
+<figure class="my-4">
+  <video
+    class="w-full rounded border border-[var(--color-line)]"
+    src={src}
+    poster={poster}
+    autoplay={autoplay}
+    loop={loop}
+    controls={controls}
+    muted={autoplay}
+    playsinline
+    preload="metadata"></video>
+  {
+    caption && (
+      <figcaption class="mt-2 text-sm font-mono text-[var(--color-faint)]">
+        {caption}
+      </figcaption>
+    )
+  }
+</figure>

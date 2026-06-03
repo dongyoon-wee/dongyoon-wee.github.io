@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  publications: CollectionEntry<'publications'>[];
+}
+const { publications } = Astro.props;
+
+// Newest first.
+const sorted = [...publications].sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Link priority: project page > conference official paper > arXiv.
+const primaryLink = (d: CollectionEntry<'publications'>['data']) =>
+  d.urlProject ?? d.urlPaper ?? d.urlPdf;
+---
+
+<ul class="divide-y divide-[var(--color-line)]">
+  {
+    sorted.map((pub) => {
+      const { title, venue, theme } = pub.data;
+      const href = primaryLink(pub.data);
+      return (
+        <li class="group py-4">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-6">
+            {/* Date(venue) + Category — meta column, Anthropic-style */}
+            <div class="shrink-0 sm:w-64 flex flex-wrap items-baseline gap-x-2 font-mono text-sm">
+              <span class="text-[var(--color-text)]">{venue}</span>
+              <span class="text-[var(--color-faint)]">· {theme}</span>
+            </div>
+            {/* Title */}
+            <h3 class="mt-1 sm:mt-0 font-serif text-lg leading-snug text-[var(--color-text)]">
+              {href ? (
+                <a href={href} target="_blank" rel="noopener" class="link-underline">
+                  {title}
+                </a>
+              ) : (
+                title
+              )}
+            </h3>
+          </div>
+        </li>
+      );
+    })
+  }
+</ul>

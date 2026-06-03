@@ -1,0 +1,291 @@
+# Source: vault canonical 2_Areas/21_Personal/212_Career/publications.md
+# (via 3_Projects/self-intro-page/publications.md) + tasks/12-self-intro-site/content-plan.md.
+# 27 papers, 197 citations as of 2026-04-15.
+# Author lists intentionally omitted — not in canonical source.
+#
+# Venue rule (content-plan §확정3): accepted papers state the venue;
+# under-review / preprint use "preprint (arXiv:XXXX)".
+# Theme rule (content-plan §확정2): acceleration papers (STTM, SeaCache)
+# go under "Efficient Generative AI" regardless of underlying area.
+#   Vision Understanding   = Media Understanding − STTM            (11)
+#   Efficient Generative AI = SeaCache + STTM                      (2)
+#   Spatial Intelligence    = Human-Centric + 3D Reconstruction    (14)
+
+# ── Efficient Generative AI (2) ───────────────────────────────────────────
+seacache:
+  title: 'SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models'
+  venue: 'CVPR 2026 (Oral)'
+  year: 2026
+  status: accepted
+  theme: 'Efficient Generative AI'
+  date: 2026-06-01
+  urlPdf: 'https://arxiv.org/abs/2602.18993'
+  urlProject: 'https://jiwoogit.github.io/SeaCache/'
+  tags: [diffusion-models, acceleration]
+
+sttm:
+  title: 'Multi-Granular Spatio-Temporal Token Merging for Training-Free Acceleration of Video LLMs (STTM)'
+  venue: 'ICCV 2025'
+  year: 2025
+  status: accepted
+  theme: 'Efficient Generative AI'
+  date: 2025-10-02
+  urlPdf: 'https://arxiv.org/abs/2507.07990'
+  urlProject: 'https://www.jshyun.me/projects/sttm'
+  tags: [video-llm, acceleration]
+
+# ── Vision Understanding (11) ─────────────────────────────────────────────
+decaf:
+  title: 'Decomposed Attention Fusion in MLLMs for Video Reasoning Segmentation (DecAF)'
+  venue: 'ICLR 2026'
+  year: 2026
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2026-04-01
+  urlPdf: 'https://arxiv.org/abs/2510.19592'
+  urlProject: 'https://www.jshyun.me/projects/decaf'
+  tags: [video-llm, segmentation]
+
+video-oasis:
+  title: 'Video-Oasis: Rethinking Evaluation of Video Understanding'
+  venue: 'preprint (arXiv:2603.29616)'
+  year: 2026
+  status: preprint
+  theme: 'Vision Understanding'
+  date: 2026-03-03
+  urlPdf: 'https://arxiv.org/abs/2603.29616'
+  tags: [video-llm, evaluation]
+
+rcore:
+  title: "Why Can't I Open My Drawer? (RCORE)"
+  venue: 'preprint (arXiv:2601.16211)'
+  year: 2026
+  status: preprint
+  theme: 'Vision Understanding'
+  date: 2026-03-01
+  urlPdf: 'https://arxiv.org/abs/2601.16211'
+  tags: [video-understanding]
+
+prvr-prototypes:
+  title: 'Prototypes are Balanced Units for Efficient and Effective Partially Relevant Video Retrieval'
+  venue: 'ICCV 2025'
+  year: 2025
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2025-10-01
+  urlPdf: 'https://arxiv.org/abs/2504.13035'
+  tags: [video-retrieval]
+
+multi-domain-vad:
+  title: 'Towards Multi-Domain Learning for Generalizable Video Anomaly Detection'
+  venue: 'NeurIPS 2024'
+  year: 2024
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2024-12-01
+  tags: [anomaly-detection]
+
+classification-matters:
+  title: 'Classification Matters: Improving Video Action Detection with Class-Specific Attention'
+  venue: 'ECCV 2024 (Oral)'
+  year: 2024
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2024-09-02
+  urlPdf: 'https://arxiv.org/abs/2407.19698'
+  urlProject: 'https://jinsingsangsung.github.io/ClassificationMatters/'
+  tags: [action-detection]
+
+decomposed-cross-modal-distillation:
+  title: 'Decomposed Cross-Modal Distillation for RGB-Based Temporal Action Detection'
+  venue: 'CVPR 2023'
+  year: 2023
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2023-06-01
+  urlPdf: 'https://arxiv.org/abs/2303.17285'
+  tags: [action-detection]
+
+dynamic-data-augmentation:
+  title: 'Exploring Temporally Dynamic Data Augmentation for Video Recognition'
+  venue: 'ICLR 2023'
+  year: 2023
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2023-05-01
+  urlPdf: 'https://arxiv.org/abs/2206.15015'
+  tags: [representation-learning]
+
+frequency-selective-augmentation:
+  title: 'Frequency Selective Augmentation for Video Representation Learning'
+  venue: 'AAAI 2023'
+  year: 2023
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2023-02-01
+  urlPdf: 'https://arxiv.org/abs/2204.03865'
+  tags: [representation-learning]
+
+mae-video-summarization:
+  title: 'Masked Autoencoder for Unsupervised Video Summarization'
+  venue: 'preprint (arXiv:2306.01395)'
+  year: 2023
+  status: preprint
+  theme: 'Vision Understanding'
+  date: 2023-06-15
+  urlPdf: 'https://arxiv.org/abs/2306.01395'
+  tags: [video-summarization]
+
+smoothed-feature:
+  title: 'Regularization on Spatio-Temporally Smoothed Feature for Action Recognition'
+  venue: 'CVPR 2020'
+  year: 2020
+  status: accepted
+  theme: 'Vision Understanding'
+  date: 2020-06-01
+  tags: [representation-learning]
+
+# ── Spatial Intelligence (14) ─────────────────────────────────────────────
+chromm:
+  title: 'Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video (ChroMM)'
+  venue: 'preprint (arXiv:2603.12789)'
+  year: 2026
+  status: preprint
+  theme: 'Spatial Intelligence'
+  date: 2026-03-02
+  urlPdf: 'https://arxiv.org/abs/2603.12789'
+  urlProject: 'https://nstar1125.github.io/chromm/'
+  tags: [human-mesh-recovery, 3d-reconstruction]
+
+hoigs:
+  title: 'HOIGS: Human-Object Interaction Gaussian Splatting'
+  venue: 'preprint (arXiv:2604.04016)'
+  year: 2026
+  status: preprint
+  theme: 'Spatial Intelligence'
+  date: 2026-03-04
+  urlPdf: 'https://arxiv.org/abs/2604.04016'
+  tags: [human-mesh-recovery, gaussian-splatting]
+
+comogaussian:
+  title: 'CoMoGaussian: Continuous Motion-Aware Gaussian Splatting from Motion-Blurred Images'
+  venue: 'ICCV 2025'
+  year: 2025
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2025-10-04
+  urlPdf: 'https://arxiv.org/abs/2503.05332'
+  urlProject: 'https://jho-yonsei.github.io/CoMoGaussian/'
+  tags: [gaussian-splatting]
+
+hcp:
+  title: 'Humans as a Calibration Pattern: Dynamic 3D Scene Reconstruction from Unsynchronized and Uncalibrated Videos (HCP)'
+  venue: 'ICCV 2025'
+  year: 2025
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2025-10-03
+  urlPdf: 'https://arxiv.org/abs/2412.19089'
+  urlProject: 'https://changwoonchoi.github.io/HCP/'
+  tags: [dynamic-radiance-fields]
+
+cocogaussian:
+  title: 'CoCoGaussian: Leveraging Circle of Confusion for Gaussian Splatting from Defocused Images'
+  venue: 'CVPR 2025'
+  year: 2025
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2025-06-01
+  urlPdf: 'https://arxiv.org/abs/2412.16028'
+  urlProject: 'https://jho-yonsei.github.io/CoCoGaussian/'
+  tags: [gaussian-splatting]
+
+moco-nerf:
+  title: 'Motion-oriented Compositional Neural Radiance Fields for Monocular Dynamic Human Modeling (MoCo-NeRF)'
+  venue: 'ECCV 2024'
+  year: 2024
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2024-09-01
+  urlPdf: 'https://arxiv.org/abs/2407.11962'
+  urlProject: 'https://stevejaehyeok.github.io/publications/moco-nerf/'
+  tags: [human-mesh-recovery, dynamic-radiance-fields]
+
+kinematic-fields:
+  title: 'Regularizing Dynamic Radiance Fields with Kinematic Fields'
+  venue: 'ECCV 2024'
+  year: 2024
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2024-09-03
+  urlPdf: 'https://arxiv.org/abs/2407.14059'
+  tags: [dynamic-radiance-fields]
+
+sefd:
+  title: 'SEFD: Learning to Distill Complex Pose and Occlusion'
+  venue: 'ICCV 2023'
+  year: 2023
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2023-10-01
+  urlProject: 'https://yangchanghee.github.io/ICCV2023_SEFD_page/'
+  tags: [human-mesh-recovery]
+
+sparse-graph-tracker:
+  title: 'Detection Recovery in Online Multi-Object Tracking with Sparse Graph Tracker'
+  venue: 'WACV 2023'
+  year: 2023
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2023-01-01
+  urlPdf: 'https://arxiv.org/abs/2205.00968'
+  tags: [multi-object-tracking]
+
+self-supervised-depth:
+  title: 'Self-Supervised Depth Estimation with Isometric-Self-Sample-Based Learning'
+  venue: 'IEEE RA-L 2023'
+  year: 2023
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2023-03-01
+  urlPdf: 'https://arxiv.org/abs/2205.10006'
+  tags: [depth-estimation]
+
+meev:
+  title: 'MEEV: Body Mesh Estimation On Egocentric Video'
+  venue: 'ECCV Workshop 2022 (1st place, EgoBody Challenge)'
+  year: 2022
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2022-10-01
+  urlPdf: 'https://arxiv.org/abs/2210.14165'
+  tags: [human-mesh-recovery]
+
+out-of-sight:
+  title: 'Out of Sight, Out of Mind: Source-View-Wise Feature Aggregation for Multi-View Image-Based Rendering'
+  venue: 'preprint (arXiv:2206.04906)'
+  year: 2022
+  status: preprint
+  theme: 'Spatial Intelligence'
+  date: 2022-06-01
+  urlPdf: 'https://arxiv.org/abs/2206.04906'
+  tags: [image-based-rendering]
+
+yoto:
+  title: 'You Only Train Once: Multi-Identity Free-Viewpoint Neural Human Rendering (YOTO)'
+  venue: 'preprint (arXiv:2303.05835)'
+  year: 2023
+  status: preprint
+  theme: 'Spatial Intelligence'
+  date: 2023-03-15
+  urlPdf: 'https://arxiv.org/abs/2303.05835'
+  tags: [human-mesh-recovery]
+
+read:
+  title: 'READ: Reciprocal Attention Discriminator for Image-to-Video Re-Identification'
+  venue: 'ECCV 2020'
+  year: 2020
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2020-08-01
+  tags: [re-identification]

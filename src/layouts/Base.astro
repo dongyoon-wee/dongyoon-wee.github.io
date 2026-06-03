@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Dongyoon Wee',
+  description = 'AI Research Engineer at NAVER Corp, leading the Vision team — computer vision.',
+} = Astro.props;
+
+const fullTitle = title === 'Dongyoon Wee' ? title : `${title} — Dongyoon Wee`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // This site uses no service worker. Proactively remove any stale one
+      // (e.g. left on this origin by a previous site) so it can't intercept
+      // requests and serve cached pages. No-op when none is registered.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations?.().then((rs) =>
+          rs.forEach((r) => r.unregister()),
+        );
+        if (window.caches?.keys) {
+          caches.keys().then((keys) => keys.forEach((k) => caches.delete(k)));
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

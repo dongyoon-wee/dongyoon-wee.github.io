@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+const links = [
+  { href: 'mailto:dongyoon.wee@navercorp.com', label: 'Email' },
+  {
+    href: 'https://scholar.google.com/citations?hl=ko&user=oEKX8h0AAAAJ&view_op=list_works&sortby=pubdate',
+    label: 'Google Scholar',
+  },
+  { href: 'https://orcid.org/0000-0003-0359-146X', label: 'ORCID' },
+  { href: 'https://github.com/dongyoon-wee', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/dongyoon-wee/', label: 'LinkedIn' },
+];
+---
+
+<footer class="w-full border-t border-[var(--color-line)] mt-24">
+  <div
+    class="max-w-6xl mx-auto px-6 sm:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+  >
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-mono">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="text-[var(--color-muted)] hover:text-[var(--color-text)] link-underline"
+              rel="me noopener"
+              target={l.href.startsWith('http') ? '_blank' : undefined}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="text-xs font-mono text-[var(--color-faint)]">
+      © {year} Dongyoon Wee
+    </p>
+  </div>
+</footer>
