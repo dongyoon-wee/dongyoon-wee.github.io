@@ -14,15 +14,21 @@ const sorted = [...publications].sort(
 // Link priority: project page > conference official paper > arXiv.
 const primaryLink = (d: CollectionEntry<'publications'>['data']) =>
   d.urlProject ?? d.urlPaper ?? d.urlPdf;
+
+// Show the first few by default; the rest reveal via the toggle button.
+const VISIBLE = 5;
+const total = sorted.length;
+const hasMore = total > VISIBLE;
 ---
 
-<ul class="divide-y divide-[var(--color-line)]">
+<ul class="divide-y divide-[var(--color-line)]" data-pub-list>
   {
-    sorted.map((pub) => {
+    sorted.map((pub, i) => {
       const { title, venue, theme } = pub.data;
       const href = primaryLink(pub.data);
+      const extra = i >= VISIBLE;
       return (
-        <li class="group py-4">
+        <li class:list={['group py-4', extra && 'hidden']} data-extra={extra ? '' : undefined}>
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-6">
             {/* Date(venue) + Category — meta column, Anthropic-style */}
             <div class="shrink-0 sm:w-64 flex flex-wrap items-baseline gap-x-2 font-mono text-sm">
@@ -45,3 +51,31 @@ const primaryLink = (d: CollectionEntry<'publications'>['data']) =>
     })
   }
 </ul>
+
+{
+  hasMore && (
+    <button
+      type="button"
+      data-pub-toggle
+      aria-expanded="false"
+      data-label-more={`Show all (${total})`}
+      data-label-less="Show fewer"
+      class="mt-4 font-mono text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] link-underline"
+    >
+      Show all ({total})
+    </button>
+  )
+}
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-pub-toggle]');
+  const extras = document.querySelectorAll<HTMLElement>('[data-extra]');
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    extras.forEach((el) => el.classList.toggle('hidden', expanded));
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.textContent = expanded
+      ? btn.dataset.labelMore!
+      : btn.dataset.labelLess!;
+  });
+</script>

@@ -1,6 +1,6 @@
 # Source: vault canonical 2_Areas/21_Personal/212_Career/publications.md
 # (via 3_Projects/self-intro-page/publications.md) + tasks/12-self-intro-site/content-plan.md.
-# 27 papers, 197 citations as of 2026-04-15.
+# 28 papers, 197 citations as of 2026-04-15.
 # Author lists intentionally omitted — not in canonical source.
 #
 # Venue rule (content-plan §확정3): accepted papers state the venue;
@@ -9,7 +9,7 @@
 # go under "Efficient Generative AI" regardless of underlying area.
 #   Vision Understanding   = Media Understanding − STTM            (11)
 #   Efficient Generative AI = SeaCache + STTM                      (2)
-#   Spatial Intelligence    = Human-Centric + 3D Reconstruction    (14)
+#   Spatial Intelligence    = Human-Centric + 3D Reconstruction    (15)
 
 # ── Efficient Generative AI (2) ───────────────────────────────────────────
 seacache:
@@ -145,7 +145,7 @@ smoothed-feature:
   date: 2020-06-01
   tags: [representation-learning]
 
-# ── Spatial Intelligence (14) ─────────────────────────────────────────────
+# ── Spatial Intelligence (15) ─────────────────────────────────────────────
 chromm:
   title: 'Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video (ChroMM)'
   venue: 'preprint (arXiv:2603.12789)'
@@ -289,3 +289,13 @@ read:
   theme: 'Spatial Intelligence'
   date: 2020-08-01
   tags: [re-identification]
+
+learning-from-dances:
+  title: 'Learning from Dances: Pose-Invariant Re-Identification for Multi-Person Tracking'
+  venue: 'ICASSP 2020'
+  year: 2020
+  status: accepted
+  theme: 'Spatial Intelligence'
+  date: 2020-05-04
+  urlPaper: 'https://ieeexplore.ieee.org/abstract/document/9054086/'
+  tags: [re-identification, multi-object-tracking]

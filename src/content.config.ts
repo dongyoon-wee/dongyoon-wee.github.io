@@ -36,6 +36,12 @@ const products = defineCollection({
     tagline: z.string(),
     description: z.string(),
     order: z.number(),
+    youtubeId: z.string().optional(), // related video to embed
+    youtubeStart: z.number().optional(), // start offset in seconds
+    image: z.string().optional(), // related image (path under /public)
+    imageAlt: z.string().optional(),
+    linkUrl: z.string().url().optional(), // related (product) page
+    linkLabel: z.string().optional(),
   }),
 });
 

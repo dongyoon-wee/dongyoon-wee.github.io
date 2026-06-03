@@ -3,11 +3,10 @@ title: About
 description: AI Research Engineer at NAVER Corp — computer vision.
 ---
 
-I am an AI Research Engineer at NAVER Corp, where I lead the Vision team. My work
-spans video understanding, human and 3D scene reconstruction, and efficient
-generative AI — and I focus on carrying research all the way into production
-engines and products.
-
-What I enjoy most is closing the loop: turning a research idea into a model that
-understands video at the scene level, reconstructs people and spaces in 3D, or
-generates video efficiently enough to ship.
+I lead the Vision Team at Naver Cloud, where I build AI systems that turn
+computer vision research into real-world products. My work spans video
+understanding, generative vision models, and spatial intelligence, with a focus
+on bridging cutting-edge research and scalable production systems. With a
+background in both AI research and system engineering, I specialize in leading
+teams that develop high-performance vision technologies from concept to
+deployment.

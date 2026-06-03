@@ -6,17 +6,20 @@
 # competitor comparisons, revenue forecasts, partnerships, code-names) excluded.
 
 mi:
-  name: 'MI'
-  tagline: 'Video Intelligence'
+  name: 'Media Intelligence'
+  tagline: 'Comprehensive Media Understanding'
   order: 1
   description: >-
-    Media Intelligence — a video intelligence solution that analyzes video and
-    image content across vision, audio, and text to enable search, editing, and
-    question answering on media, pairing an analysis engine with a media agent
-    for natural-language search.
+    A video intelligence solution that analyzes video and image content across
+    vision, audio, and text to enable search, editing, and question answering on
+    media, pairing an analysis engine with a media agent for natural-language
+    search.
+  youtubeId: '7j2YZ-Kkhwk'
+  linkUrl: 'https://www.ncloud.com/product/media/mediaAIUnderstanding'
+  linkLabel: 'Product page'
 
 advoost:
-  name: 'Necro (AdVoost)'
+  name: 'ADVoost I2M'
   tagline: 'Advertising video generation'
   order: 2
   description: >-
@@ -24,6 +27,8 @@ advoost:
     image into a short motion video ad. Advertisers upload an image, a
     vision-language model suggests motion effects, and the engine produces the
     result — positioning motion creatives as an upgrade over static banners.
+  youtubeId: 'H1-VkEwlLNU'
+  youtubeStart: 1768
 
 lw-vision:
   name: 'LineWorks Vision'
@@ -34,3 +39,7 @@ lw-vision:
     remote monitoring into operational intelligence — people counting, person
     search via re-identification, movement heatmaps, and behavioral analysis for
     retail and facility operations.
+  image: '/images/lw-vision-ai-search.jpg'
+  imageAlt: 'LineWorks Vision AI search — person search results across store cameras'
+  linkUrl: 'https://line-works.com/vision/#2503ab2d'
+  linkLabel: 'Product page'

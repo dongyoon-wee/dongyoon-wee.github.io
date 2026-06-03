@@ -7,8 +7,12 @@ interface Props {
   id: string;
   title?: string;
   caption?: string;
+  start?: number; // start offset in seconds
 }
-const { id, title = 'YouTube video', caption } = Astro.props;
+const { id, title = 'YouTube video', caption, start } = Astro.props;
+const src =
+  `https://www.youtube-nocookie.com/embed/${id}` +
+  (start ? `?start=${start}` : '');
 ---
 
 <figure class="my-4">
@@ -18,7 +22,7 @@ const { id, title = 'YouTube video', caption } = Astro.props;
   >
     <iframe
       class="absolute inset-0 w-full h-full"
-      src={`https://www.youtube-nocookie.com/embed/${id}`}
+      src={src}
       title={title}
       loading="lazy"
       frameborder="0"

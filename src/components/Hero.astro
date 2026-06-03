@@ -7,20 +7,11 @@ const { name, tagline } = Astro.props;
 ---
 
 <section class="pt-20 pb-12 sm:pt-28 sm:pb-16">
-  <div class="flex items-center justify-between gap-6">
-    <h1
-      class="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight text-[var(--color-text)]"
-    >
-      {name}
-    </h1>
-    <img
-      src="/images/profile.jpg"
-      alt="Dongyoon Wee"
-      width="96"
-      height="96"
-      class="hidden sm:block w-24 h-24 rounded-full object-cover grayscale border border-[var(--color-line)] shrink-0"
-    />
-  </div>
+  <h1
+    class="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight text-[var(--color-text)]"
+  >
+    {name}
+  </h1>
   <p
     class="mt-5 text-xl sm:text-2xl leading-relaxed text-[var(--color-muted)]"
   >

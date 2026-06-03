@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import YouTube from './YouTube.astro';
 
 interface Props {
   products: CollectionEntry<'products'>[];
@@ -8,18 +9,102 @@ const { products } = Astro.props;
 const sorted = [...products].sort((a, b) => a.data.order - b.data.order);
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
-  {
-    sorted.map((p) => (
-      <div>
-        <h3 class="font-serif text-lg text-[var(--color-text)]">{p.data.name}</h3>
-        <p class="mt-1 font-mono text-sm text-[var(--color-faint)]">
-          {p.data.tagline}
-        </p>
-        <p class="mt-2 text-[var(--color-muted)] leading-relaxed text-[15px]">
-          {p.data.description}
-        </p>
-      </div>
-    ))
-  }
+{/*
+  Column 1 — list of all product titles + taglines (always visible).
+  Columns 2-3 — a single detail area; hovering (or focusing) a title swaps
+  which product's description + video / link is shown. Media Intelligence
+  (first by order) is shown by default.
+*/}
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6" data-products>
+  {/* Column 1 — titles */}
+  <div class="sm:col-span-1 flex flex-col gap-5">
+    {
+      sorted.map((p, i) => (
+        <button
+          type="button"
+          data-product-title={p.id}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          class="group text-left cursor-pointer"
+        >
+          <h3 class:list={['font-serif text-lg group-hover:text-[var(--color-text)] group-focus-visible:text-[var(--color-text)] transition-colors', i === 0 ? 'text-[var(--color-text)]' : 'text-[var(--color-muted)]']}>
+            {p.data.name}
+          </h3>
+          <p class="mt-1 font-mono text-sm text-[var(--color-faint)]">
+            {p.data.tagline}
+          </p>
+        </button>
+      ))
+    }
+  </div>
+
+  {/* Columns 2-3 — detail panels */}
+  <div class="sm:col-span-2">
+    {
+      sorted.map((p, i) => (
+        <div
+          data-product-detail={p.id}
+          class:list={['space-y-2', i !== 0 && 'hidden']}
+        >
+          <p class="text-[var(--color-muted)] leading-relaxed text-[15px]">
+            {p.data.description}
+          </p>
+          {p.data.youtubeId && (
+            <YouTube
+              id={p.data.youtubeId}
+              start={p.data.youtubeStart}
+              title={p.data.name}
+            />
+          )}
+          {p.data.image && (
+            <figure class="my-4">
+              <img
+                src={p.data.image}
+                alt={p.data.imageAlt ?? p.data.name}
+                loading="lazy"
+                class="w-full rounded border border-[var(--color-line)]"
+              />
+            </figure>
+          )}
+          {p.data.linkUrl && (
+            <a
+              href={p.data.linkUrl}
+              target="_blank"
+              rel="noopener"
+              class="mt-2 inline-block font-mono text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] link-underline"
+            >
+              {p.data.linkLabel ?? 'Learn more'} →
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </div>
 </div>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-products]');
+  if (root) {
+    const titles = root.querySelectorAll<HTMLElement>('[data-product-title]');
+    const details =
+      root.querySelectorAll<HTMLElement>('[data-product-detail]');
+
+    const show = (id: string) => {
+      titles.forEach((t) => {
+        const active = t.dataset.productTitle === id;
+        t.setAttribute('aria-pressed', String(active));
+        const h3 = t.querySelector('h3');
+        h3?.classList.toggle('text-[var(--color-text)]', active);
+        h3?.classList.toggle('text-[var(--color-muted)]', !active);
+      });
+      details.forEach((d) =>
+        d.classList.toggle('hidden', d.dataset.productDetail !== id),
+      );
+    };
+
+    titles.forEach((t) => {
+      const id = t.dataset.productTitle!;
+      t.addEventListener('mouseenter', () => show(id));
+      t.addEventListener('focus', () => show(id));
+    });
+  }
+</script>
